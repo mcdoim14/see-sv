@@ -1,17 +1,16 @@
 <template>
-    <div class="LandingPageCls">
+    <NavigationBar></NavigationBar>
+    <div class="landing-page">
         <h1>THIS IS A TEST APP</h1>
-        <button class="TestButtonCls" @click="test">CLICK ME!</button>
+        <button class="test-button" @click="test">CLICK ME!</button>
         <DxButton
             text="Click me too!"
             @click="sayHelloWorld"
         />
-        <DxChart
-            :data-source="data">
-            <DxArgumentAxis :tick-interval="10" />
-            <DxSeries type="bar" />
-            <DxLegend :visible="false" />
-        </DxChart>
+        <Icon>
+            <Money16Regular />
+        </Icon>
+        <!-- Add the style and icon you want using the String format -->
         <body>
             Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
         </body>
@@ -19,13 +18,19 @@
 </template>
 
 <style scoped>
-.LandingPageCls {
+h1 {
+    margin: 0px !important;
+}
+.nav-bar {
+    height: 10%
+}
+.landing-page {
     width: 100%;
     height: 10000px;
-    background-color: aquamarine;
+    background-color: rgb(248, 244, 234);
 }
 
-.TestButtonCls {
+.test-button {
     background-color: cornflowerblue;
     margin: 10px;
 }
@@ -33,38 +38,28 @@
 
 <script>
 import DxButton from 'devextreme-vue/button';
-import DxChart, { DxArgumentAxis, DxSeries, DxLegend } from 'devextreme-vue/chart';
-
-const data = [{
-    arg: 1990,
-    val: 5320816667
-}, {
-    arg: 2000,
-    val: 6127700428
-}, {
-    arg: 2010,
-    val: 6916183482
-}];
+import { Money16Regular } from '@vicons/fluent';
+import { Icon } from '@vicons/utils';
+import NavigationBar from './NavigationBar';
 
 export default {
     components: {
         DxButton,
-        DxChart,
-        DxArgumentAxis,
-        DxSeries,
-        DxLegend
+        Money16Regular,
+        Icon,
+        NavigationBar
     },
     data() {
         return {
-            data,
+            
         }
     },
     methods: {
         test() {
-            alert("This is a test alert!");
+            alert("This is a test alert!123");
         },
         sayHelloWorld() {
-            alert('Hello world!');
+            alert('Hello world!321');
         }
     }    
 }
