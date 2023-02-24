@@ -9,7 +9,15 @@ export default {
   name: 'App',
   components: {
     LandingPage
-  }
+  },
+  async created() {
+        const indexedDB = window.indexedDB;
+        if (!indexedDB) {
+            console.log("IndexedDB could not be found in this browser.");
+        }
+        const request = indexedDB.open("mainDb", 1);
+        console.log(">>>>>request: ", request);
+    },
 }
 </script>
 
